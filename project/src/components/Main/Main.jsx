@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Card from '../Card/Card';
+import { VALIDATION_RULES } from '../../validation/validation.js';
+import CardList from '../CardList/CardList';
 
 export default function Main({ housingInfo }) {
   return (
@@ -113,7 +113,7 @@ export default function Main({ housingInfo }) {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {housingInfo.map((infoItem) => <Card key={infoItem.id} info={infoItem} />)}
+                <CardList housingInfo={ housingInfo } block='cities' />
               </div>
             </section>
             <div className="cities__right-section">
@@ -126,17 +126,4 @@ export default function Main({ housingInfo }) {
   );
 }
 
-Main.propTypes = {
-  housingInfo: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      image: PropTypes.string.isRequired,
-      isPremium: PropTypes.bool.isRequired,
-      price: PropTypes.number.isRequired,
-      header: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      isFavorites: PropTypes.bool.isRequired,
-      rating: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-};
+Main.propTypes = VALIDATION_RULES;
