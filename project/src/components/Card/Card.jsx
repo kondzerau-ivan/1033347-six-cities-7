@@ -1,44 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-export default function Card({ info }) {
+export default function Card({ info, handleCardHover, block }) {
   const {
-    image,
-    isPremium,
+    'preview_image': previewImage,
+    'is_premium': isPremium,
+    'is_favorite': isFavorite,
+    id,
     price,
-    header,
-    type,
-    isFavorites,
     rating,
+    title,
+    type,
   } = info;
 
   return (
-    <article className="cities__place-card place-card">
-      {isPremium ?
+    <article className={`${block === 'favorites' ? 'favorites__card' : 'cities__place-card'} place-card`} onMouseOver={() => {handleCardHover(id);}}>
+      {isPremium && block !== 'favorites' ?
         (
           <div className="place-card__mark">
             <span>Premium</span>
           </div>
         )
         : ''}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${block}__image-wrapper place-card__image-wrapper`}>
         <a href="/#">
           <img
             className="place-card__image"
-            src={image}
-            width="260"
-            height="200"
+            src={previewImage}
+            width={block === 'favorites' ? '150' : '260'}
+            height={block === 'favorites' ? '110' : '200'}
             alt="Place card"
           />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={`${block === 'favorites' ? 'favorites__card-info' : ''} place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className={`place-card__bookmark-button ${isFavorites ?
+          <button className={`place-card__bookmark-button ${isFavorite ?
             'place-card__bookmark-button--active'
             : ''
           } button`}
@@ -57,7 +59,7 @@ export default function Card({ info }) {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="/#">{header}</a>
+          <Link to={`/offer/:${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -66,16 +68,7 @@ export default function Card({ info }) {
 }
 
 Card.propTypes = {
-  info: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      image: PropTypes.string.isRequired,
-      isPremium: PropTypes.bool.isRequired,
-      price: PropTypes.number.isRequired,
-      header: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      isFavorites: PropTypes.bool.isRequired,
-      rating: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
+  info: PropTypes.shape().isRequired,
+  handleCardHover: PropTypes.func.isRequired,
+  block: PropTypes.string.isRequired,
 };

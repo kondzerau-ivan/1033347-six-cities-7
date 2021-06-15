@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { VALIDATION_RULES } from '../../validation/validation.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NoMatch from '../NoMatch/NoMatch';
 import Main from '../Main/Main';
@@ -19,7 +19,7 @@ export default function App({ housingInfo }) {
           <SignIn />
         </Route>
         <Route exact path='/favorites'>
-          <Favorites />
+          <Favorites housingInfo={housingInfo} />
         </Route>
         <Route exact path='/offer/:id'>
           <Room />
@@ -32,17 +32,4 @@ export default function App({ housingInfo }) {
   );
 }
 
-App.propTypes = {
-  housingInfo: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      image: PropTypes.string.isRequired,
-      isPremium: PropTypes.bool.isRequired,
-      price: PropTypes.number.isRequired,
-      header: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      isFavorites: PropTypes.bool.isRequired,
-      rating: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-};
+App.propTypes = VALIDATION_RULES;
