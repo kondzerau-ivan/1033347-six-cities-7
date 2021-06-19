@@ -1,11 +1,11 @@
 import React from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NoMatch from '../NoMatch/NoMatch';
-import Main from '../Main/Main';
-import SignIn from '../SignIn/SignIn';
-import Favorites from '../Favorites/Favorites';
-import Room from '../Room/Room';
+import NoMatch from '../no-match/no-match';
+import Main from '../main/main';
+import SignIn from '../sign-in/sign-in';
+import Favorites from '../favorites/favorites';
+import Room from '../room/room';
 
 export default function App({ housingInfo }) {
   return (

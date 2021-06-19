@@ -1,6 +1,6 @@
 import React from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
-import CardList from '../CardList/CardList';
+import CardList from '../card-list/card-list';
 
 export default function Favorites({ housingInfo }) {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentForm from '../CommentForm/CommentForm';
+import CommentForm from '../comment-form/comment-form';
 
 export default function Room() {
   return (

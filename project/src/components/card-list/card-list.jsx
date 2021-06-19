@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
-import Card from '../Card/Card';
+import Card from '../card/card';
 
 export default function CardList({ housingInfo, block }) {
   const [active, setActive] = useState(1);
