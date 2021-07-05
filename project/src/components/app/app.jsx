@@ -7,7 +7,7 @@ import SignIn from '../sign-in/sign-in';
 import Favorites from '../favorites/favorites';
 import Room from '../room/room';
 
-export default function App({ housingInfo }) {
+function App({ housingInfo }) {
   return (
 
     <Router>
@@ -33,3 +33,5 @@ export default function App({ housingInfo }) {
 }
 
 App.propTypes = VALIDATION_RULES;
+
+export default App;

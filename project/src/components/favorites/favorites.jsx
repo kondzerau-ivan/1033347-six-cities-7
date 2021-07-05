@@ -2,7 +2,7 @@ import React from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
 import CardList from '../card-list/card-list';
 
-export default function Favorites({ housingInfo }) {
+function Favorites({ housingInfo }) {
 
   const favoritesHouses = housingInfo.filter((element) => element.is_favorite === true);
 
@@ -67,3 +67,5 @@ export default function Favorites({ housingInfo }) {
 }
 
 Favorites.propTypes = VALIDATION_RULES;
+
+export default Favorites;

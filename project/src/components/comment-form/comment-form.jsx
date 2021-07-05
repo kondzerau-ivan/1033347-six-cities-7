@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function CommentForm() {
+function CommentForm() {
   const [rating, setRating] = useState('');
   const [review, setReview] = useState('');
 
@@ -65,3 +65,5 @@ export default function CommentForm() {
     </form>
   );
 }
+
+export default CommentForm;

@@ -1,8 +1,9 @@
 import React from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
 import CardList from '../card-list/card-list';
+import Map from '../map/map';
 
-export default function Main({ housingInfo }) {
+function Main({ housingInfo }) {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -117,7 +118,9 @@ export default function Main({ housingInfo }) {
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map housingInfo={ housingInfo } />
+              </section>
             </div>
           </div>
         </div>
@@ -127,3 +130,5 @@ export default function Main({ housingInfo }) {
 }
 
 Main.propTypes = VALIDATION_RULES;
+
+export default Main;

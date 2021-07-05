@@ -1,7 +1,7 @@
 import React from 'react';
 import CommentForm from '../comment-form/comment-form';
 
-export default function Room() {
+function Room() {
   return (
     <div className="page">
       <header className="header">
@@ -289,3 +289,5 @@ export default function Room() {
     </div>
   );
 }
+
+export default Room;

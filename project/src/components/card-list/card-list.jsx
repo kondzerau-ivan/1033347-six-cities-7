@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
 import Card from '../card/card';
 
-export default function CardList({ housingInfo, block }) {
+function CardList({ housingInfo, block }) {
   const [active, setActive] = useState(1);
 
   function handleCardHover(id) {
@@ -25,3 +25,5 @@ export default function CardList({ housingInfo, block }) {
 }
 
 CardList.propTypes = VALIDATION_RULES;
+
+export default CardList;
