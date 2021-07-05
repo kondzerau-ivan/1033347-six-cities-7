@@ -1,8 +1,9 @@
 import React from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
-import CardList from '../CardList/CardList';
+import CardList from '../card-list/card-list';
+import Map from '../map/map';
 
-export default function Main({ housingInfo }) {
+function Main({ cities }) {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -85,7 +86,7 @@ export default function Main({ housingInfo }) {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{housingInfo.length} places to stay in Amsterdam</b>
+              <b className="places__found">{cities.length} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -113,11 +114,13 @@ export default function Main({ housingInfo }) {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <CardList housingInfo={ housingInfo } block='cities' />
+                <CardList cities={ cities } block='cities' />
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map cities={ cities } />
+              </section>
             </div>
           </div>
         </div>
@@ -127,3 +130,5 @@ export default function Main({ housingInfo }) {
 }
 
 Main.propTypes = VALIDATION_RULES;
+
+export default Main;

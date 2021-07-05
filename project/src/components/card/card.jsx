@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default function Card({ info, handleCardHover, block }) {
+function Card({ info, handleCardHover, block }) {
   const {
     'preview_image': previewImage,
     'is_premium': isPremium,
@@ -72,3 +72,5 @@ Card.propTypes = {
   handleCardHover: PropTypes.func.isRequired,
   block: PropTypes.string.isRequired,
 };
+
+export default Card;

@@ -1,25 +1,25 @@
 import React from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NoMatch from '../NoMatch/NoMatch';
-import Main from '../Main/Main';
-import SignIn from '../SignIn/SignIn';
-import Favorites from '../Favorites/Favorites';
-import Room from '../Room/Room';
+import NoMatch from '../no-match/no-match';
+import Main from '../main/main';
+import SignIn from '../sign-in/sign-in';
+import Favorites from '../favorites/favorites';
+import Room from '../room/room';
 
-export default function App({ housingInfo }) {
+function App({ cities }) {
   return (
 
     <Router>
       <Switch>
         <Route exact path='/'>
-          <Main housingInfo={housingInfo} />
+          <Main cities={cities} />
         </Route>
         <Route exact path='/login'>
           <SignIn />
         </Route>
         <Route exact path='/favorites'>
-          <Favorites housingInfo={housingInfo} />
+          <Favorites cities={cities} />
         </Route>
         <Route exact path='/offer/:id'>
           <Room />
@@ -33,3 +33,5 @@ export default function App({ housingInfo }) {
 }
 
 App.propTypes = VALIDATION_RULES;
+
+export default App;

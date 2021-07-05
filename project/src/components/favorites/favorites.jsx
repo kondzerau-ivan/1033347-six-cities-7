@@ -1,10 +1,10 @@
 import React from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
-import CardList from '../CardList/CardList';
+import CardList from '../card-list/card-list';
 
-export default function Favorites({ housingInfo }) {
+function Favorites({ cities }) {
 
-  const favoritesHouses = housingInfo.filter((element) => element.is_favorite === true);
+  const favoritesCities = cities.filter((city) => city.is_favorite === true);
 
   return (
     <div className="page">
@@ -50,7 +50,7 @@ export default function Favorites({ housingInfo }) {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <CardList housingInfo={ favoritesHouses } block='favorites' />
+                  <CardList cities={ favoritesCities } block='favorites' />
                 </div>
               </li>
             </ul>
@@ -67,3 +67,5 @@ export default function Favorites({ housingInfo }) {
 }
 
 Favorites.propTypes = VALIDATION_RULES;
+
+export default Favorites;
