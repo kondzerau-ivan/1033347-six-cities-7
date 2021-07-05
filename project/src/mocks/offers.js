@@ -1,4 +1,4 @@
-export const HOUSING_INFO = [
+export const CITIES = [
   {
     'bedrooms': 3,
     'city': {

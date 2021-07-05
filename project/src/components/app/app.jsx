@@ -7,19 +7,19 @@ import SignIn from '../sign-in/sign-in';
 import Favorites from '../favorites/favorites';
 import Room from '../room/room';
 
-function App({ housingInfo }) {
+function App({ cities }) {
   return (
 
     <Router>
       <Switch>
         <Route exact path='/'>
-          <Main housingInfo={housingInfo} />
+          <Main cities={cities} />
         </Route>
         <Route exact path='/login'>
           <SignIn />
         </Route>
         <Route exact path='/favorites'>
-          <Favorites housingInfo={housingInfo} />
+          <Favorites cities={cities} />
         </Route>
         <Route exact path='/offer/:id'>
           <Room />

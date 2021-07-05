@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const VALIDATION_RULES = {
-  housingInfo: PropTypes.arrayOf(
+  cities: PropTypes.arrayOf(
     PropTypes.shape({
       'bedrooms': PropTypes.number.isRequired,
       'city': PropTypes.shape({

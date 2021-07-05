@@ -4,14 +4,12 @@ import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import useMap from '../../hooks/useMap';
 
-function Map({housingInfo}) {
-  const DEFAULT_CITY = 0;
-
-  const city = housingInfo[DEFAULT_CITY];
+function Map({cities}) {
+  const [defaultCity] = cities;
 
   const mapRef = useRef(null);
 
-  const map = useMap(mapRef, city);
+  const map = useMap(mapRef, defaultCity);
 
   const icon = leaflet.icon({
     iconUrl: 'img/pin.svg',
@@ -20,19 +18,20 @@ function Map({housingInfo}) {
   });
 
   useEffect(() => {
-    if(map) {
-      housingInfo.forEach((elem) => {
-        leaflet
-          .marker({
-            lat: elem.city.location.latitude,
-            lng: elem.city.location.longitude,
-          }, {
-            icon: icon,
-          })
-          .addTo(map);
-      });
+    if(!map) {
+      return;
     }
-  }, [map, housingInfo, icon]);
+    cities.forEach((city) => {
+      leaflet
+        .marker({
+          lat: city.city.location.latitude,
+          lng: city.city.location.longitude,
+        }, {
+          icon: icon,
+        })
+        .addTo(map);
+    });
+  }, [map, cities, icon]);
 
   return (
     <div id="map" style={{height: '100%'}} ref={mapRef} >

@@ -2,9 +2,9 @@ import React from 'react';
 import { VALIDATION_RULES } from '../../validation/validation.js';
 import CardList from '../card-list/card-list';
 
-function Favorites({ housingInfo }) {
+function Favorites({ cities }) {
 
-  const favoritesHouses = housingInfo.filter((element) => element.is_favorite === true);
+  const favoritesCities = cities.filter((city) => city.is_favorite === true);
 
   return (
     <div className="page">
@@ -50,7 +50,7 @@ function Favorites({ housingInfo }) {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <CardList housingInfo={ favoritesHouses } block='favorites' />
+                  <CardList cities={ favoritesCities } block='favorites' />
                 </div>
               </li>
             </ul>
