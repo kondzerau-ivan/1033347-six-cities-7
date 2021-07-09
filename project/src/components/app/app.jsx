@@ -7,7 +7,7 @@ import SignIn from '../sign-in/sign-in';
 import Favorites from '../favorites/favorites';
 import Room from '../room/room';
 
-function App({ cities }) {
+function App({ cities, reviews }) {
   return (
 
     <Router>
@@ -22,7 +22,7 @@ function App({ cities }) {
           <Favorites cities={cities} />
         </Route>
         <Route exact path='/offer/:id'>
-          <Room />
+          <Room reviews={reviews} cities={cities} />
         </Route>
         <Route path='*'>
           <NoMatch />
